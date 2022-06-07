@@ -51,20 +51,18 @@ if __name__ == '__main__':
     layer1 = neuronLayer(4, 3)
     layer2 = neuronLayer(1, 4)
 
-    neuralNet = neuralNet(layer1, layer2)
+    nn = neuralNet(layer1, layer2)
 
     print("Random starting synaptic weights: ")
-    neuralNet.weightPri()
+    nn.weightPri()
 
+    # code: if first number is 1 output is 1 else 0
     tsi = np.array([[0, 0, 0], [0, 0, 1], [0, 1, 1], [1, 0, 1], [1, 1, 0], [1, 1, 1]])
     tso = np.array([[0, 0, 0, 1, 1, 1]]).T
 
-    #tsi = np.array([[0, 0, 1], [0, 1, 1], [1, 0, 1], [0, 1, 0], [1, 0, 0], [1, 1, 1], [0, 0, 0]])
-    #tso = np.array([[0, 1, 1, 1, 1, 0, 0]]).T
-
-    neuralNet.train(tsi, tso, 100000)
+    nn.train(tsi, tso, 100000)
 
     print("New synaptic weights after training: ")
-    neuralNet.weightPri()
+    nn.weightPri()
 
-    print("[1, 0, 1] -> 1: ", neuralNet.test(np.array([1, 0, 1])))
+    print("[1, 0, 1] -> 1: ", nn.test(np.array([1, 0, 1])))
